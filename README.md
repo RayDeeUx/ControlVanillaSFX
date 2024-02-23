@@ -6,7 +6,7 @@ To change the volume of vanilla SFX, use this mod's custom settings (see video d
 
 Video demo:
 
-https://github.com/RayDeeUx/ControlVanillaSFX/assets/51521765/62e4522e-1add-40d5-887f-35f2b7aa51be
+https://github.com/RayDeeUx/ControlVanillaSFX/assets/51521765/d7c6ca0c-6594-4983-aa61-2ce4b4b800b8
 
 (Disclaimer: Other Geode mods were active while demonstrating this mod.)
 

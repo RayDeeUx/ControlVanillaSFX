@@ -42,8 +42,8 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			if (std::find(vanillaSFX.begin(), vanillaSFX.end(), std::string(p0)) == vanillaSFX.end()) {
 				FMODAudioEngine::playEffect(p0, p1, p2, p3);
 			} else {
-				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / (float)100.0);
-				auto speed = (Mod::get()->getSettingValue<int64_t>("speed") / (float)100.0);
+				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / 100.0f);
+				auto speed = (Mod::get()->getSettingValue<int64_t>("speed") / 100.0f);
 				if (m_sfxVolume < 0.11 && Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) {
 					volume *= Mod::get()->getSettingValue<double>("volumeBoost");
 				}

@@ -27,7 +27,6 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 
 				for (auto& p : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
 					auto path = std::filesystem::path(p.c_str()).parent_path();
-				
 					if (!strcmp(path.parent_path().filename().string().c_str(), "packs") || !strcmp(path.parent_path().filename().string().c_str(), "unzipped")) {
 						if (std::filesystem::exists(path / std::string(p0))) {
 							sfxPath = path / std::string(p0);

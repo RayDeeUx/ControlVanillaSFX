@@ -57,7 +57,6 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 					auto path = std::filesystem::path(p.c_str()).parent_path();
 				
 					if (!strcmp(path.parent_path().filename().string().c_str(), "packs") || !strcmp(path.parent_path().filename().string().c_str(), "unzipped")) {
-						log::warn("{}", p);
 						if (std::filesystem::exists(path / std::string(p0))) {
 							sfxPath = path / std::string(p0);
 							break;

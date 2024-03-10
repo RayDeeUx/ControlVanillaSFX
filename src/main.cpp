@@ -33,6 +33,7 @@ const std::list<std::string> vanillaSFX = {
 	"secretKey.ogg",
 	"unlockPath.ogg"
 };
+const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 
 using namespace geode::prelude;
 
@@ -43,11 +44,30 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 				FMODAudioEngine::playEffect(p0, p1, p2, p3);
 			} else {
 				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / 100.0f);
-				auto speed = (Mod::get()->getSettingValue<int64_t>("speed") / 100.0f);
-				if (m_sfxVolume < 0.11 && Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) {
-					volume *= Mod::get()->getSettingValue<double>("volumeBoost");
+				if (Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) { volume *= Mod::get()->getSettingValue<double>("volumeBoost"); }
+
+				auto system = FMODAudioEngine::sharedEngine()->m_system;
+
+				FMOD::Channel* channel;
+				FMOD::Sound* sound;
+
+				std::filesystem::path sfxPath = (resourcesPath / p0.c_str());
+
+				for (auto& p : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
+					auto path = std::filesystem::path(p.c_str()).parent_path();
+				
+					if (!strcmp(path.parent_path().filename().string().c_str(), "packs") || !strcmp(path.parent_path().filename().string().c_str(), "unzipped")) {
+						log::warn("{}", p);
+						if (std::filesystem::exists(path / std::string(p0))) {
+							sfxPath = path / std::string(p0);
+							break;
+						}
+					}
 				}
-				FMODAudioEngine::playEffect(p0, speed, p2, volume);
+
+				system->createSound(sfxPath.string().c_str(), FMOD_DEFAULT, nullptr, &sound);
+				system->playSound(sound, nullptr, false, &channel);
+				channel->setVolume(volume);
 			}
 		} else {
 			FMODAudioEngine::playEffect(p0, p1, p2, p3);

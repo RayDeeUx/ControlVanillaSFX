@@ -1,6 +1,6 @@
 # ControlVanillaSFX Changelog
 ## v1.3.0
-- macOS and Android support.
+- Android support.
 - Bump minimum Geode version requirement.
 - Fix a rare edge case where something similar to `reward01.ogg` would play despite volume controls.
 ## v1.2.0

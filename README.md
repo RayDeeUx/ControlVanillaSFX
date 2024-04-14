@@ -10,4 +10,4 @@ https://github.com/RayDeeUx/ControlVanillaSFX/assets/51521765/374072cf-bef3-4874
 
 (Disclaimer: Other Geode mods were active while demonstrating this mod.)
 
-This mod is exclusive to Windows.
+This mod is licensed under LGPLv2.

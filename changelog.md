@@ -1,4 +1,6 @@
 # ControlVanillaSFX Changelog
+## v1.3.1
+- Remove additional check for rare popping; might be an FMOD issue on its own outside of my control.
 ## v1.3.0
 - Android support.
 - Bump minimum Geode version requirement.

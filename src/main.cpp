@@ -17,7 +17,6 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			} else {
 				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / 100.0f);
 				if (Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) { volume *= Mod::get()->getSettingValue<double>("volumeBoost"); }
-				if (volume < 0.001f) { volume = 0.0001f; }
 
 				auto system = FMODAudioEngine::sharedEngine()->m_system;
 

@@ -8,7 +8,7 @@ const std::list<std::string> vanillaSFX = { "achievement_01.ogg", "buyItem01.ogg
 #ifndef GEODE_IS_ANDROID
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 #else
-const std::filesystem::path resourcesPath = "file:///android_asset";
+const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
 #endif
 using namespace geode::prelude;
 

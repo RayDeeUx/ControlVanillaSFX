@@ -23,7 +23,6 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			if (std::find(vanillaSFX.begin(), vanillaSFX.end(), std::string(p0)) == vanillaSFX.end()) {
 				FMODAudioEngine::sharedEngine()->playEffect(p0, p1, p2, p3); // , p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18
 			} else {
-				log::info("std::filesystem::current_path(): {}", std::filesystem::current_path());
 				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / 100.0f);
 				if (Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) { volume *= Mod::get()->getSettingValue<double>("volumeBoost"); }
 				if (volume < 0.001f) { volume = 0.0001f; }

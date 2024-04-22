@@ -4,9 +4,13 @@
 // const std::regex sfxRegex("s(?:\\d+)\\.ogg", std::regex_constants::icase);
 const std::regex mp3Regex(".*\\.mp3", std::regex_constants::icase);
 const std::list<std::string> vanillaSFX = { "achievement_01.ogg", "buyItem01.ogg", "buyItem03.ogg", "chest07.ogg", "chest08.ogg", "chestClick.ogg", "chestLand.ogg", "chestOpen01.ogg", "counter003.ogg", "crystal01.ogg", "door001.ogg", "door01.ogg", "door02.ogg", "endStart_02.ogg", "explode_11.ogg", "gold01.ogg", "gold02.ogg", "grunt01.ogg", "grunt02.ogg", "grunt03.ogg", "highscoreGet02.ogg", "magicExplosion.ogg", "playSound_01.ogg", "quitSound_01.ogg", "reward01.ogg", "secretKey.ogg", "unlockPath.ogg" };
-#ifndef GEODE_IS_ANDROID
+#ifdef GEODE_IS_WINDOWS
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
-#else
+#endif
+#ifdef GEODE_IS_MACOS
+const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
+#endif
+#ifdef GEODE_IS_ANDROID
 const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
 #endif
 using namespace geode::prelude;
@@ -17,6 +21,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			if (std::find(vanillaSFX.begin(), vanillaSFX.end(), std::string(p0)) == vanillaSFX.end()) {
 				FMODAudioEngine::sharedEngine()->playEffect(p0, p1, p2, p3); // , p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18
 			} else {
+				log::info("std::filesystem::current_path(): {}", std::filesystem::current_path());
 				auto volume = (Mod::get()->getSettingValue<int64_t>("volume") / 100.0f);
 				if (Mod::get()->getSettingValue<double>("volumeBoost") != 1.0) { volume *= Mod::get()->getSettingValue<double>("volumeBoost"); }
 				if (volume < 0.001f) { volume = 0.0001f; }

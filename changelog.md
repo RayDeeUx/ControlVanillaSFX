@@ -1,7 +1,6 @@
 # ControlVanillaSFX Changelog
 ## v1.3.2
 - Fix an issue where SFX in some levels would infinitely loop. Thank you, Aktimoose, for bringing this to my attention, and deepest apologies for rejecting your original claims. I hope this apology and this update is compensation enough for my harsh behavior at the time.
-- Add macOS support.
 - Increase minimum Geode requirement to `beta 25`.
 ## v1.3.1
 - Fix an issue with SFX not playing at all on Android. ***THANK YOU WEEBIFY!***

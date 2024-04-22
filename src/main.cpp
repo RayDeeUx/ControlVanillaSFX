@@ -7,9 +7,11 @@ const std::list<std::string> vanillaSFX = { "achievement_01.ogg", "buyItem01.ogg
 #ifdef GEODE_IS_WINDOWS
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 #endif
+/*
 #ifdef GEODE_IS_MACOS
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 #endif
+*/
 #ifdef GEODE_IS_ANDROID
 const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
 #endif

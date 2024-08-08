@@ -1,4 +1,6 @@
 # ControlVanillaSFX Changelog
+## v1.3.4
+- Added macOS support.
 ## v1.3.3
 - Port to 2.206. Big thanks to CatXus, Aktimoose, ninXout, and hiimjustin000 for helping out with testing!
 ## v1.3.2

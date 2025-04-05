@@ -11,6 +11,9 @@ const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "
 const std::filesystem::path resourcesPath = geode::dirs::getGeodeDir().parent_path() / "Resources";
 #elif defined(GEODE_IS_ANDROID)
 const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
+#elif defined(GEODE_IS_IOS)
+std::string iosResourcePath();
+const std::filesystem::path resourcesPath = iosResourcePath();
 #endif
 using namespace geode::prelude;
 

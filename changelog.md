@@ -1,4 +1,6 @@
 # ControlVanillaSFX Changelog
+## v1.3.6
+- Experimental iOS support.
 ## v1.3.5
 - Port to 2.2074.
 ## v1.3.4

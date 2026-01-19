@@ -1,4 +1,7 @@
 # ControlVanillaSFX Changelog
+## v1.3.7
+- Prepare for 2.208 support.
+- Experimental iOS JIT-less support.
 ## v1.3.6
 - Experimental iOS support.
 ## v1.3.5

@@ -28,7 +28,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 		FMOD::Channel* channel;
 		FMOD::Sound* sound;
 
-		std::filesystem::path sfxPath = (resourcesPath / p0AsString.c_str());
+		std::filesystem::path sfxPath = (resourcesPath / p0AsString);
 
 		for (auto& searchPath : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
 			const std::filesystem::path grandparentPath = std::filesystem::path(searchPath.c_str()).parent_path().parent_path();

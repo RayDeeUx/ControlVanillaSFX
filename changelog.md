@@ -1,4 +1,6 @@
 # ControlVanillaSFX Changelog
+## v1.3.9
+- Minor refactors.
 ## v1.3.7 and v1.3.8
 - Port to GD 2.2081.
 - Experimental iOS JIT-less support.

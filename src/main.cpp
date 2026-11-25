@@ -5,7 +5,7 @@ static const std::array<std::string, 30> vanillaSFX = { "achievement_01.ogg", "b
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 #elif defined(GEODE_IS_MACOS)
 #include <Geode/loader/Dirs.hpp>
-const std::filesystem::path resourcesPath = geode::dirs::getGeodeDir().toStdPath().unwrapOr(std::filesystem::path{}).parent_path() / "Resources";
+const std::filesystem::path resourcesPath = (geode::dirs::getGeodeDir().parent() / "Resources").toStdPath().unwrapOr(std::filesystem::path{});
 #elif defined(GEODE_IS_ANDROID)
 const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
 #elif defined(GEODE_IS_IOS)

@@ -34,7 +34,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 		std::error_code ec;
 		for (auto& searchPaths : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
 			const std::filesystem::path path = std::filesystem::path(searchPaths).parent_path();
-			std::string grandparentPath = geode::utils::string::pathToString(path.parent_path().filename());
+			std::string grandparentPath = path.parent_path().filename().string();
 			if (grandparentPath != "packs" && grandparentPath != "unzipped") continue;
 			const std::filesystem::path proposedPath = (path / p0AsString);
 			if (!std::filesystem::exists(proposedPath, ec)) continue;
@@ -42,7 +42,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			break;
 		}
 
-		system->createSound(geode::utils::string::pathToString(sfxPath).c_str(), FMOD_DEFAULT, nullptr, &sound);
+		system->createSound(sfxPath.c_str(), FMOD_DEFAULT, nullptr, &sound);
 		system->playSound(sound, nullptr, false, &channel);
 		channel->setVolume(volume);
 

@@ -5,7 +5,7 @@ static const std::array<std::string, 30> vanillaSFX = { "achievement_01.ogg", "b
 const std::filesystem::path resourcesPath = (std::filesystem::current_path() / "Resources");
 #elif defined(GEODE_IS_MACOS)
 #include <Geode/loader/Dirs.hpp>
-const std::filesystem::path resourcesPath = geode::dirs::getGeodeDir().parent_path() / "Resources";
+const std::filesystem::path resourcesPath = geode::dirs::getGeodeDir().toStdPath().unwrapOr(std::filesystem::path{}).parent_path() / "Resources";
 #elif defined(GEODE_IS_ANDROID)
 const std::filesystem::path resourcesPath = "file:///android_asset"; // THANK YOU WEEBIFY
 #elif defined(GEODE_IS_IOS)
@@ -33,10 +33,10 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 
 		std::error_code ec;
 		for (auto& searchPaths : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
-			const std::filesystem::path path = std::filesystem::path(searchPaths).parent_path();
+			const std::filesystem::path& path = std::filesystem::path(searchPaths).parent_path().toStdPath().unwrapOr(std::filesystem::path{});
 			std::string grandparentPath = path.parent_path().filename().string();
 			if (grandparentPath != "packs" && grandparentPath != "unzipped") continue;
-			const std::filesystem::path proposedPath = (path / p0AsString);
+			const std::filesystem::path& proposedPath = (path / p0AsString);
 			if (!std::filesystem::exists(proposedPath, ec)) continue;
 			sfxPath = proposedPath;
 			break;

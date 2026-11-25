@@ -1,4 +1,6 @@
 # ControlVanillaSFX Changelog
+## v1.3.10
+- 2.2091 as a game update was a net negative.
 ## v1.3.9
 - Minor refactors.
 ## v1.3.7 and v1.3.8

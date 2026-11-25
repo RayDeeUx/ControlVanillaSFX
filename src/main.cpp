@@ -16,7 +16,7 @@ const std::filesystem::path resourcesPath = iosResourcePath();
 using namespace geode::prelude;
 
 class $modify(MyFMODAudioEngine, FMODAudioEngine) {
-	int playEffect(gd::string p0, float p1, float p2, float p3) { // , float p4, bool p5, bool p6, int p7, int p8, int p9, int p10, bool p11, int p12, bool p13, bool p14, int p15, int p16, float p17, int p18
+	int playEffect(std::string p0, float p1, float p2, float p3) { // , float p4, bool p5, bool p6, int p7, int p8, int p9, int p10, bool p11, int p12, bool p13, bool p14, int p15, int p16, float p17, int p18
 		const std::string& p0AsString = std::string(p0);
 		if (!Mod::get()->getSettingValue<bool>("enabled") || !geode::utils::string::endsWith(p0AsString, ".ogg")) return FMODAudioEngine::sharedEngine()->playEffect(p0, p1, p2, p3); // , p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18
 		if (std::ranges::find(vanillaSFX, p0AsString) == vanillaSFX.end()) return FMODAudioEngine::sharedEngine()->playEffect(p0, p1, p2, p3); // , p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18

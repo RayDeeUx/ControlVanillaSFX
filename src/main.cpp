@@ -34,7 +34,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 		std::error_code ec;
 		for (auto& searchPaths : CCFileUtils::sharedFileUtils()->getSearchPaths()) {
 			const std::filesystem::path& path = std::filesystem::path(searchPaths).parent_path();
-			std::string grandparentPath = path.parent_path().filename().string();
+			std::string grandparentPath = asp::fs::Path::fromStdPath(path.parent_path()).filename().string();
 			if (grandparentPath != "packs" && grandparentPath != "unzipped") continue;
 			const std::filesystem::path& proposedPath = (path / p0AsString);
 			if (!std::filesystem::exists(proposedPath, ec)) continue;

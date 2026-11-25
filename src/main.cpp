@@ -42,7 +42,7 @@ class $modify(MyFMODAudioEngine, FMODAudioEngine) {
 			break;
 		}
 
-		system->createSound(sfxPath.c_str(), FMOD_DEFAULT, nullptr, &sound);
+		system->createSound(asp::fs::Path::fromStdPath(sfxPath).string().c_str(), FMOD_DEFAULT, nullptr, &sound);
 		system->playSound(sound, nullptr, false, &channel);
 		channel->setVolume(volume);
 
